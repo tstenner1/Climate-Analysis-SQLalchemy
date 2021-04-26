@@ -55,3 +55,53 @@ def calc_temps(start_date, end_date):
         .filter(Measurement.date <= end_date)
         .all()
     )
+
+#Calculate the date 1 year ago from the last data point in the database
+last_date = session.query(Measurement.date).order_by(Measurement.date.desc()).first()[0]
+last_date = dt.datetime.strptime(last_date, "%Y-%m-%d")
+last_year = last_date - dt.timedelta(days=365)
+
+
+@app.route("/api/v1.0/precipitation")
+def precipitation():
+    """Return a dictionary in JSON format where the date is the key and the value is 
+    the precipitation data"""
+
+    session = Session(engine)
+
+    # Perform a query to retrieve the data and precipitation scores
+    precip_results = (
+        session.query(Measurement.date, Measurement.prcp)
+        .filter(Measurement.date > last_year)
+        .order_by(Measurement.date)
+        .all()
+    )
+    # Save the query results as a dictionary
+    # Return the valid JSON response object
+    return jsonify(precip_results)
+
+
+@app.route("/api/v1.0/stations")
+def stations():
+    """Return a list of stations"""
+
+    session = Session(engine)
+
+    stations_results = session.query(Station.station, Station.name).all()
+
+    return jsonify(stations_results)
+
+
+@app.route("/api/v1.0/tobs")
+def tobs():
+    """Return a JSON list of temperature observations for the previous year"""
+
+    session = Session(engine)
+
+    temp_results = (
+        session.query(Measurement.date, Measurement.tobs)
+        .filter(Measurement.date > last_year)
+        .order_by(Measurement.date)
+        .all()
+    )
+    return jsonify(temp_results)
