@@ -105,3 +105,25 @@ def tobs():
         .all()
     )
     return jsonify(temp_results)
+
+    @app.route("/api/v1.0/<start>")
+def start(start):
+    """Returns the JSON list of the minimum, average and the maximum temperatures for a given start date (YYYY-MM-DD)"""
+
+    temps = calc_temps(start, last_date)
+
+    #list to store the temperature records
+    temp_list = []
+    date_dict = {"Start Date": start, "End Date": last_date}
+    temp_list.append(date_dict)
+    temp_list.append(
+        {"Observation": "Minimum Temperature", "Temperature(F)": temps[0][0]}
+    )
+    temp_list.append(
+        {"Observation": "Average Temperature", "Temperature(F)": temps[0][1]}
+    )
+    temp_list.append(
+        {"Observation": "Maximum Temperature", "Temperature(F)": temps[0][2]}
+    )
+
+    return jsonify(temp_list)
