@@ -1,16 +1,9 @@
-# SQLAlchemy Homework - Surfs Up!
+# SQLAlchemy
 
-![surfs-up.png](Images/surfs-up.png)
+Below is a trimmed down readme highlighting the specific skills executed in this assignment.
 
 Congratulations! You've decided to treat yourself to a long holiday vacation in Honolulu, Hawaii! To help with your trip planning, you need to do some climate analysis on the area. The following outlines what you need to do.    
 
-<br>
-<hr>    
-
-## Update:  
-These instructions match the starter files found in the `Updated_Starter_Files` folder.  The rubric is slightly off only for the bonus section - it has a grading scale for the bonus 2 file (`Trip Temp` & `Daily Rainfall`) but no rubric scale for bonus 1.   
-<br>
-<hr>    
 
 ## Step 1 - Climate Analysis and Exploration
 
@@ -36,8 +29,6 @@ To begin, use Python and SQLAlchemy to do basic climate analysis and data explor
 
 * Plot the results using the DataFrame `plot` method.
 
-  ![precipitation](Images/precipitation.png)
-
 * Use Pandas to print the summary statistics for the precipitation data.
 
 ### Station Analysis
@@ -58,7 +49,6 @@ To begin, use Python and SQLAlchemy to do basic climate analysis and data explor
 
   * Plot the results as a histogram with `bins=12`.
 
-    ![station-histogram](Images/station-histogram.png)
 
 - - -
 
