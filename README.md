@@ -4,7 +4,7 @@ Climate analysis on Honolulu, Hawaii.
 
 ## Climate Analysis and Exploration
 
-I began using Python and SQLAlchemy to do basic climate analysis and data exploration of my climate database. All of the following analysis was completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
+I began by using Python and SQLAlchemy to do basic climate analysis and data exploration of my climate database. All of the following analysis was completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
 
 * To start I chose a start date and end date for my trip. 
 
